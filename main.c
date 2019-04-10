@@ -4,6 +4,7 @@
 #include <signal.h>
 #include "screen.h"
 #include "sound.h"
+#include "comm.h"
 
 int main(){
 	FILE *f;
@@ -24,6 +25,7 @@ int main(){
 		fclose(f);
 		displayWAVHDR(hdr);
 		displayWAVDATA(sd);
+		sendDATA(sd);
 	}
 	resetColors();
 }
