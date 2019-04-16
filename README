@@ -1,1 +1,46 @@
-# This is application development ver 1
+# This is application development ver 1.1 ----- by Sergey Gordeev
+
+This application offers a possibility to turn a Raspberry Pi as a sound device. The application comes with 2 functions:
+a sound collector ans a test tone generator.
+
+List of Content
+	1. Configuration Instructions
+	The following equipment is required:
+	- Raspberry pi
+	- SD card (with NOOBS sowtware installed)
+	- C media usb sound adapter
+	- Microphone
+	- Headphones
+	- Ethernet cable (internet connection)
+	- Micro usb power cable
+
+	2. Installation Instractions
+	-Upload code from github (link: https://github.com/e1801587/appdev)
+	-Set USB Sound Card as Default:
+		a. Use “sudo nano /etc/asound.conf”command and put following content to the file:
+		pcm.!default {
+			type plug
+			slave {
+				pcm "hw:1,0"
+			}
+		}
+		ctl.!default {
+			type hw
+			card 1
+		}
+		b. Go to your home directory. Use “nano .asoundrc” command and put the same content to the file.
+		c. Run “alsamixer” you should be able to see that USB sound card is the default audio device.
+	- Install libcurl
+		a. Use command "ls /usr/include/curl" or "ls /usr/include/arm-linux-gnueabihf/curl" to identify that libcurl library is installed.
+		b. If the folder doesn’t exist. Run “sudo apt-get update” to update the application list.
+		c. Run “sudo apt-get install libcurl3” to install the libcurl3.
+		d. Run “sudo apt-get install libcurl4-openssl-dev” to install the development API of libcurl4.
+
+	3. Operating Instructions
+		-Use "make" command to build a files into a programm
+		-Use "./sound.out" for running the built program. The data will be writen in the testcurl.txt
+		-Use "make clean" for dissamble the program
+	4. List of Files
+	5. Copyright / Copyleft
+	6. Contact info.
+	7. Credits and Acknowledgement
