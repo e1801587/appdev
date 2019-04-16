@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>			//for ranom numbers
-//#include <time.h>			//for randomization (using system time)
 #include <signal.h>
 #include "screen.h"
 #include "sound.h"
